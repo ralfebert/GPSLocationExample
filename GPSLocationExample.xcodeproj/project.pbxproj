@@ -12,6 +12,7 @@
 		BF62C42726EA28590024A92C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF62C42626EA28590024A92C /* Assets.xcassets */; };
 		BF62C42A26EA28590024A92C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF62C42926EA28590024A92C /* Preview Assets.xcassets */; };
 		BF62C43226EA28820024A92C /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = BF62C43126EA28820024A92C /* BottomSheet */; };
+		BF9B2A1B26F0F9FB00281D06 /* CLLocationCoordinate2D+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9B2A1A26F0F9FB00281D06 /* CLLocationCoordinate2D+Distance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		BF62C42426EA28580024A92C /* GPSTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSTrackView.swift; sourceTree = "<group>"; };
 		BF62C42626EA28590024A92C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF62C42926EA28590024A92C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BF9B2A1A26F0F9FB00281D06 /* CLLocationCoordinate2D+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Distance.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				BF62C42426EA28580024A92C /* GPSTrackView.swift */,
 				BF62C42626EA28590024A92C /* Assets.xcassets */,
 				BF62C42826EA28590024A92C /* Preview Content */,
+				BF9B2A1A26F0F9FB00281D06 /* CLLocationCoordinate2D+Distance.swift */,
 			);
 			path = GPSLocationExample;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			files = (
 				BF62C42526EA28580024A92C /* GPSTrackView.swift in Sources */,
 				BF62C42326EA28580024A92C /* GPSLocationExampleApp.swift in Sources */,
+				BF9B2A1B26F0F9FB00281D06 /* CLLocationCoordinate2D+Distance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

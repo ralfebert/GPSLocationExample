@@ -13,7 +13,6 @@ struct GPSTrack {
     var positions: [GPSPosition] = []
 }
 
-@MainActor
 class GPSTrackModel: ObservableObject {
     @Published var track = GPSTrack()
 
@@ -28,8 +27,9 @@ class GPSTrackModel: ObservableObject {
             if oldValue != self.recording {
                 if self.recording {
                     self.locationMonitoringTask = Task {
-                        for await coordinate in self.$mapRegion.map(\.center).values {
-                            self.add(coordinate: coordinate)
+                        let coordinates = self.$mapRegion.map(\.center)
+                        for await coordinate in coordinates.values {
+                            await self.add(coordinate: coordinate)
                         }
                     }
                 } else {
@@ -42,8 +42,11 @@ class GPSTrackModel: ObservableObject {
 
     private var locationMonitoringTask: Task<Void, Never>?
 
+    @MainActor
     private func add(coordinate: CLLocationCoordinate2D) {
-        self.track.positions.append(GPSPosition(coordinate: coordinate))
+        if self.track.positions.isEmpty || self.track.positions.last!.coordinate.distance(to: coordinate) > 10 {
+            self.track.positions.append(GPSPosition(coordinate: coordinate))
+        }
     }
 }
 
@@ -55,7 +58,11 @@ struct ContentView: View {
         Map(
             coordinateRegion: $trackModel.mapRegion,
             showsUserLocation: true,
-            userTrackingMode: .constant(.follow)
+            userTrackingMode: .constant(.follow),
+            annotationItems: trackModel.track.positions,
+            annotationContent: { pos in
+                MapMarker(coordinate: pos.coordinate)
+            }
         )
         .overlay(
             alignment: .bottomTrailing,
